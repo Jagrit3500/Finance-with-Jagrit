@@ -1,0 +1,677 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #1a1a1a, #2d1f1f, #331c0c, #1f1209);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.top-nav {
+    margin-bottom: 2rem;
+}
+
+.back-btn {
+    color: #fff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #ff6b2b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.input-group {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 1rem;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus, select:focus {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #ff6b2b;
+    color: #1a1a1a;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #e85a1f;
+}
+
+.stats-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.chart-container {
+    margin-bottom: 2rem;
+}
+
+.expenses-list {
+    grid-column: 1 / -1;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.expenses-list h2 {
+    margin-bottom: 1rem;
+}
+
+#expenses-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.expense-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.delete-btn {
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.convert-btn {
+    margin-top: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ff6b2b;
+    border: 1px solid #ff6b2b;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 250px;
+}
+
+.convert-btn:hover {
+    background: #ff6b2b;
+    color: #1a1a1a;
+}
+
+.convert-btn i {
+    font-size: 1rem;
+}
+
+.total-expenses {
+    text-align: center;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Update the select option styles */
+select option {
+    background: #ffffff;
+    color: #000000;
+    padding: 10px;
+}
+
+/* Update the select element styles to show selected value in white */
+select {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Add a custom arrow for the select */
+.input-group::after {
+    content: '▼';
+    font-size: 0.8rem;
+    color: #ff6b2b;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Summary Cards */
+.summary-section {
+    margin-bottom: 0;
+}
+
+.summary-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.summary-card i {
+    font-size: 1.5rem;
+    color: #ff6b2b;
+    margin-bottom: 0.5rem;
+}
+
+.summary-card h4 {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
+}
+
+.summary-card span {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ff6b2b;
+}
+
+.summary-card small {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.25rem;
+}
+
+/* Insights Section */
+.insights-section {
+    grid-column: 1 / -1;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.insights-section h2 {
+    color: #ff6b2b;
+    margin-bottom: 1rem;
+}
+
+#spending-trends {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.budget-warning {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 87, 87, 0.1);
+    border-left: 4px solid #ff5757;
+    display: none;
+}
+
+.budget-warning.show {
+    display: block;
+}
+
+/* Add these new styles */
+.income-section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.income-section .input-group {
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    flex: 1;
+}
+
+.income-btn {
+    width: auto;
+    padding: 0.8rem 1.5rem;
+    background: #ff6b2b;
+    white-space: nowrap;
+}
+
+.income-display {
+    font-size: 1.1rem;
+    color: #ff6b2b;
+    white-space: nowrap;
+}
+
+.savings-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.savings-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.savings-card h4 {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.savings-card span {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ff6b2b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .income-section {
+        flex-direction: column;
+    }
+    
+    .income-section .input-group {
+        width: 100%;
+    }
+    
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(min-content, max-content);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.bento-box {
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 107, 43, 0.1);
+    box-shadow: 0 8px 32px rgba(255, 107, 43, 0.1);
+}
+
+.bento-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 32px rgba(255, 107, 43, 0.2);
+}
+
+.box-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    color: #ff6b2b;
+}
+
+.box-header i {
+    font-size: 1.25rem;
+    color: #ff6b2b;
+}
+
+.box-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Grid Layout */
+.income-box {
+    grid-column: span 2;
+}
+
+.expense-form-box {
+    grid-column: span 2;
+}
+
+.chart-box {
+    grid-column: span 2;
+    grid-row: span 2;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-box {
+    grid-column: span 2;
+}
+
+.savings-box {
+    grid-column: span 2;
+}
+
+.insights-box {
+    grid-column: span 2;
+}
+
+.expenses-list-box {
+    grid-column: span 2;
+}
+
+.total-box {
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Income Box */
+.income-input {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.income-btn {
+    width: auto;
+    padding: 0.8rem 1.5rem;
+}
+
+/* Summary Grid */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    height: calc(100% - 3rem);
+}
+
+/* Savings Grid */
+.savings-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    height: calc(100% - 3rem);
+}
+
+/* Total Box */
+.total-amount {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff6b2b;
+    margin: 1rem 0;
+}
+
+/* Expense List */
+.expense-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    align-items: center;
+    padding: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .bento-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .chart-box {
+        grid-column: span 3;
+    }
+
+    .expenses-list-box {
+        grid-column: span 3;
+    }
+}
+
+@media (max-width: 1200px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chart-box,
+    .expenses-list-box,
+    .income-box,
+    .expense-form-box,
+    .summary-box,
+    .savings-box,
+    .insights-box {
+        grid-column: span 2;
+    }
+
+    .total-box,
+    .reset-box {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .total-box,
+    .reset-box,
+    .chart-box,
+    .expenses-list-box,
+    .income-box,
+    .expense-form-box,
+    .summary-box,
+    .savings-box,
+    .insights-box {
+        grid-column: span 1;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .savings-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .expense-item {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+}
+
+/* Update chart colors */
+.chart-container canvas {
+    background: rgba(26, 26, 26, 0.5);
+}
+
+/* Reset Box Styles */
+.reset-box {
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.reset-btn {
+    background: rgba(255, 87, 87, 0.1);
+    color: #ff4757;
+    border: 1px solid #ff4757;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.reset-btn:hover {
+    background: #ff4757;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.warning-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    display: block;
+}
+
+/* Add confirmation modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: rgba(26, 26, 26, 0.95);
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    max-width: 400px;
+    border: 1px solid rgba(255, 87, 87, 0.2);
+    box-shadow: 0 8px 32px rgba(255, 87, 87, 0.2);
+}
+
+.modal-content h3 {
+    color: #ff4757;
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.confirm-reset {
+    background: #ff4757;
+    color: #fff;
+}
+
+.cancel-reset {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.confirm-reset:hover {
+    background: #ff3747;
+}
+
+.cancel-reset:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Add custom scrollbar for expenses list */
+.expenses-list-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.expenses-list-box::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.expenses-list-box::-webkit-scrollbar-thumb {
+    background: rgba(255, 107, 43, 0.3);
+    border-radius: 4px;
+}
+
+.expenses-list-box::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 107, 43, 0.5);
+} 
